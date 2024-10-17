@@ -1,0 +1,53 @@
+.app-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, purple, pink, white);
+  }
+  
+  .loading-screen, .signup-container, .selection-screen, .location-screen, .room-screen {
+    text-align: center;
+    color: white;
+  }
+  
+  .site-title {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+  
+  .moving-text {
+    font-size: 1.5rem;
+    animation: move 3s infinite;
+  }
+  
+  @keyframes move {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; }
+  }
+  
+  .signup-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #fff;
+    color: purple;
+    border-radius: 5px;
+  }
+  
+  .user-grid {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .user-card {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 5px 10px;
+  }
+  
