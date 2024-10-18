@@ -1,53 +1,100 @@
+/* General container for the entire app */
 .app-container {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, purple, pink, white);
-  }
-  
-  .loading-screen, .signup-container, .selection-screen, .location-screen, .room-screen {
+    color: white; /* Ensure text color contrast on background */
+}
+
+/* Logo styling */
+.logo {
+    width: 150px;  /* Set the desired width */
+    height: auto;  /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto;  /* Center the logo */
+}
+
+/* Common styles for all screens */
+.loading-screen, 
+.signup-container, 
+.selection-screen, 
+.location-screen, 
+.room-screen {
     text-align: center;
     color: white;
-  }
-  
-  .site-title {
+}
+
+/* Title styling */
+.site-title {
     font-size: 4rem;
     font-weight: bold;
-  }
-  
-  .moving-text {
+}
+
+/* Moving text with smooth animation */
+.moving-text {
     font-size: 1.5rem;
-    animation: move 3s infinite;
-  }
-  
-  @keyframes move {
+    animation: fadeInOut 3s infinite ease-in-out;  /* Use ease-in-out for smooth transition */
+}
+
+/* Animation to create fading effect */
+@keyframes fadeInOut {
     0% { opacity: 0.2; }
     100% { opacity: 1; }
-  }
-  
-  .signup-btn {
+}
+
+/* Button styling for signup and general use */
+.signup-btn, button {
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #fff;
-    color: purple;
+    background-color: white; /* White background for buttons */
+    color: purple;  /* Text color contrast */
+    border: none;
     border-radius: 5px;
-  }
-  
-  .user-grid {
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+}
+
+.signup-btn:hover, button:hover {
+    background-color: #f0e6ff;  /* Light purple hover effect */
+}
+
+/* User grid display (for room screen) */
+.user-grid {
     display: flex;
     gap: 10px;
-  }
-  
-  .user-card {
+    flex-wrap: wrap;  /* Wrap users in rows if there are too many */
+    justify-content: center;
+}
+
+/* Card styling for each user */
+.user-card {
     background-color: white;
     color: black;
     padding: 10px;
     border-radius: 8px;
-  }
-  
-  button {
-    margin-top: 10px;
-    padding: 5px 10px;
-  }
-  
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Add slight shadow for depth */
+    text-align: center;
+    width: 150px;  /* Set fixed width for uniformity */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 3rem;  /* Adjust title size for smaller screens */
+    }
+
+    .moving-text {
+        font-size: 1.2rem;  /* Adjust text size for smaller screens */
+    }
+
+    .user-card {
+        width: 100px;  /* Adjust user card size for smaller screens */
+    }
+}

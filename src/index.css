@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif; /* Ensure this matches your Google Fonts import */
+    background: linear-gradient(135deg, purple, pink, white); /* Background gradient */
+    color: white; /* Default text color */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: white; /* Ensure headings are visible against the background */
+  }
+  
+  .loading-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .signup-screen, .selection-screen, .location-screen, .room-screen {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .user-card {
+    background: rgba(255, 255, 255, 0.2); /* Light background for user cards */
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+    transition: transform 0.3s;
+  }
+  
+  .user-card:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+  }
+  

@@ -1,5 +1,4 @@
-// App.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';  // Ensure you create and modify this file for styling
 import SignupScreen from './components/SignupScreen';  // Move signup logic to a component
 import SelectionScreen from './components/SelectionScreen';
@@ -13,18 +12,33 @@ function App() {
   const [location, setLocation] = useState('');
   const [users, setUsers] = useState([]);  // Mock users for display
 
-  // Simulate loading effect
-  setTimeout(() => alert('Hello'), 1000);
+  useEffect(() => {
+    // Simulate loading effect and set loading to false after 1 second
+    const timer = setTimeout(() => setLoading(false), 1000);
+
+    // External logic you can keep safely if no eval or new Function is involved
+    const pushNextF = () => {
+      window.__next_f = window.__next_f || [];
+      window.__next_f.push([0]);
+      window.__next_f.push([2, null]);
+    };
+    
+    pushNextF();
+
+    // Cleanup the timer on component unmount
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSignup = () => setStep(1); // Move to room selection after signup
-  const handleRoomSelect = (room) => {
-    setRoom(room);
+
+  const handleRoomSelect = (selectedRoom) => {
+    setRoom(selectedRoom);
     setStep(2);  // Move to location selection
   };
-  const handleLocationSelect = (location) => {
-    setLocation(location);
+
+  const handleLocationSelect = (selectedLocation) => {
+    setLocation(selectedLocation);
     setStep(3);  // Move to show users after location selection
-    // Load users here based on room and location
     setUsers([
       { id: 1, name: 'Jane Doe', photo: 'jane.jpg' },
       { id: 2, name: 'John Smith', photo: 'john.jpg' }
@@ -36,7 +50,7 @@ function App() {
       {loading ? (
         <div className="loading-screen">
           <h1 className="site-title">Love Onchain</h1>
-          <img src="logo.png" alt="Love Onchain Logo" className="logo" />
+          <img src="/logo.png" alt="Love Onchain Logo" className="logo" />
           <p className="moving-text">Love is a beautiful thing, and finding it should not be a difficult task.</p>
         </div>
       ) : step === 0 ? (
